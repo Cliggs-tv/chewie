@@ -494,7 +494,7 @@ class ChewieController extends ChangeNotifier {
   final bool showControlsOnInitialize;
 
   /// Whether or not to show the controls at all
-  bool showControls;
+  final bool showControls;
 
   /// Controller to pass into the [InteractiveViewer] component.
   /// If it is required to control the transformation only via the controller,
@@ -657,21 +657,6 @@ class ChewieController extends ChangeNotifier {
 
   void toggleFullScreen() {
     _isFullScreen = !_isFullScreen;
-    notifyListeners();
-  }
-
-  void hideControls() {
-    showControls = false;
-    notifyListeners();
-  }
-
-  void displayControls() {
-    showControls = true;
-    notifyListeners();
-  }
-
-  void toggleControls() {
-    showControls = !showControls;
     notifyListeners();
   }
 
