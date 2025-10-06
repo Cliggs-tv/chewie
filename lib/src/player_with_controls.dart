@@ -24,7 +24,11 @@ class PlayerWithControls extends StatelessWidget {
       BuildContext context,
       ChewieController chewieController,
     ) {
-      return chewieController.showControls
+      final showControls =
+          chewieController.showControls ||
+          (chewieController.isFullScreen &&
+              chewieController.forceControlsOnFullScreen);
+      return showControls
           ? chewieController.customControls ?? const AdaptiveControls()
           : const SizedBox();
     }

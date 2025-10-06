@@ -305,6 +305,7 @@ class ChewieController extends ChangeNotifier {
     this.hideControlsTimer = defaultHideControlsTimer,
     this.controlsSafeAreaMinimum = EdgeInsets.zero,
     this.pauseOnBackgroundTap = false,
+    this.forceControlsOnFullScreen = false,
   }) : assert(
          playbackSpeeds.every((speed) => speed > 0),
          'The playbackSpeeds values must all be greater than 0',
@@ -599,6 +600,10 @@ class ChewieController extends ChangeNotifier {
 
   /// Defines if the player should pause when the background is tapped
   final bool pauseOnBackgroundTap;
+
+  /// Defines if the player should always show the controls on full screen
+  /// regardless of [showControls] value.
+  final bool forceControlsOnFullScreen;
 
   static ChewieController of(BuildContext context) {
     final chewieControllerProvider =
