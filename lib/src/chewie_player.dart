@@ -71,8 +71,10 @@ class ChewieState extends State<Chewie> {
   Future<void> listener() async {
     if (isControllerFullScreen && !_isFullScreen) {
       _isFullScreen = isControllerFullScreen;
+      notifier.hideStuff = false;
       await _pushFullScreenWidget(context);
     } else if (_isFullScreen) {
+      notifier.hideStuff = true;
       Navigator.of(
         context,
         rootNavigator: widget.controller.useRootNavigator,
